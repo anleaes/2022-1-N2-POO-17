@@ -81,4 +81,5 @@ Observacao *-- Exames
 Laboratorio o-- Exames
 Profissional o-- Laboratorio
 
+
 @enduml
