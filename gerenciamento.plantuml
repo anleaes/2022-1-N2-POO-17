@@ -27,7 +27,7 @@ class Paciente{
     - dieta: String
     - exames: Exames
     - contato_emergencia: ContatoEmergencia
-    + construtor(plano_saude, acompanhante, tempo_internacao, exames, contato_emergencia)
+    + construtor(pessoa, dados, plano_saude, acompanhante, tempo_internacao, exames, contato_emergencia)
 }
 
 class Observacao{
