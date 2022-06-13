@@ -1,76 +1,75 @@
-@startuml gerenciamento
+@startuml  
 
-title Gerenciamento de Exames
-
-class Pessoa{
-    - nome: String
-    - idade: int
+class Pessoa {
+   	- nome: String
+   	- idade: Int
     - endereco: String
-    - telefone: int
+    - telefone: Int
     - email: String
-    + construtor(nome, idade, endereco, telefone, email)
-    
+   	+ contrutor(nome, idade, endereco, telefone, email)
 }
 
-class Profissional{
-    - nome_profissional: String
-    - cargo: String
-    - registro_profissional: int
-    - assinatura: String
-    + construtor(nome_profissional, cargo, registro_profissional, assinatura)
+class ContatoEmergencia {
+   	- nome_familiar: String
+   	- telefone_familiar: Int
+    - parentesco: String
+    - tipo_sanguineo_familiar: String
+   	+ contrutor(nome_familiar, telefone_familiar, parentesco, tipo_sanguineo_familiar)
 }
 
-class Paciente{
+class Dados {
+   	- tipo_sanguineo: String
+   	- alergia: String
+    - uso_ilicito: String
+    - uso_medicamento: String
+   	+ contrutor(tipo_sanguineo, alergia, uso_ilicito, uso_medicamento)
+}
+
+class Exames {
+   	- tempo_jejum: Int
+    - tipo_exame: String
+    - horario: String
+    - sala: Int
+    - observacao: Observacao
+    - laboratorio: Laboratorio
+   	+ contrutor(tempo_jejum, tipo_exame, horario, sala, Observacao, Laboratorio)
+}
+
+class Paciente {
     - plano_saude: String
     - acompanhante: String
     - tempo_internacao: String
     - dieta: String
-    - exames: Exames
-    - contato_emergencia: ContatoEmergencia
-    + construtor(pessoa, dados, plano_saude, acompanhante, tempo_internacao, exames, contato_emergencia)
+   	- pessoa: Pessoa
+   	- exames: Exames
+    - contatoEmergencia: ContatoEmergencia
+    - dados: Dados
+   	+ contrutor(plano_saude, acompanhante, tempo_internacao, dieta, Pessoa, Exames, ContatoEmergencia, Dados)
 }
 
-class Observacao{
-    - risco_exame: String
-    - triagem: String
+class Laboratorio {
+   	- nome_laboratorio: String
+   	- endereco_laboratorio: String
+    - cnpj: Int
+    - telefone_laboratorio: Int
+    - profissional: Profissional
+   	+ contrutor(nome_laboratorio, endereco_laboratorio, telefone_laboratorio, Profissional)
+}
+
+class Observacao {
+   	- risco_exame: String
+   	- triagem: String
     - equipamento: String
     - medicamento: String
-    + construtor(risco_exame, triagem, equipamento, medicamento)
+   	+ contrutor(risco_exame, triagem, equipamento, medicamento)
 }
 
-class Laboratorio{
-    - nome_laboratorio: String
-    - endereco_laboratorio: String
-    - cnpj: int
-    - telefone_laboratorio: int
-    - profissional: Profissional
-    + construtor(nome_laboratorio, endereco_laboratorio, cnpj, telefone_laboratorio, profissional)
-}
-
-class Exames{
-    - tempo_jejum: String
-    - tipo_exame: String
-    - horario: String
-    - sala: int
-    - observacao: Observacao
-    - laboratorio: Laboratorio
-    + construtor(tempo_jejum, tipo_exame, horario, sala, observacao, laboratorio)
-}
-
-class Dados{
-    - tipo_sanguineo: String
-    - alergia: String
-    - uso_ilicito: String
-    - uso_medicamento: String
-    + construtor(tipo_sanguineo, alergia, uso_ilicito, uso_medicamento)
-}
-
-class ContatoEmergencia{
-    - nome_familiar: String
-    - telefone_familiar: int
-    - parentesco: String
-    - tipo_sanguineo_familiar: String
-    + construtor(nome_familiar, telefone_familiar, parentesco, tipo_sanguineo_familiar)
+class Profissional{
+   	- nome_profissional: String
+   	- cargo: String
+    - registro_profissional: Int
+    - assinatura: String
+   	+ contrutor(nome_profissional, cargo, registro_profissional, assinatura)
 }
 
 Pessoa <|-- Paciente
@@ -80,6 +79,8 @@ ContatoEmergencia o-- Paciente
 Observacao *-- Exames
 Laboratorio o-- Exames
 Profissional o-- Laboratorio
+
+
 
 
 @enduml
