@@ -1,11 +1,8 @@
-from pessoa import Pessoa
-from dados import Dados
-
-class Paciente(Pessoa, Dados):
+class Paciente:
     
-    def _init_(self, plano_saude, acompanhante, tempo_internacao, dieta, exames, contato_emergencia, nome, idade, endereco, telefone, email, tipo_sanguineo, alergia, uso_ilicito, uso_medicamento):
-        super()._init__init_(nome, idade, endereco, telefone, email)
-        super()._init__init_(tipo_sanguineo, alergia, uso_ilicito, uso_medicamento)
+    def __init__(self, pessoa, dados, plano_saude, acompanhante, tempo_internacao, dieta, exames, contato_emergencia):
+        self._pessoa = pessoa
+        self._dados = dados
         self._plano_saude = plano_saude
         self._acompanhante = acompanhante
         self._tempo_internacao = tempo_internacao
